@@ -1,6 +1,5 @@
 const express       = require('express')
 const logger        = require('morgan')
-const { uploader }  = require('./utils/multer.js')
 const handlebars    = require('express-handlebars')
 const viewsRouter   = require('./routes/views.router.js')
 const { Server }    = require('socket.io')
@@ -25,7 +24,6 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'handlebars')
 
 app.use('/', viewsRouter)
-app.use('/pruebas', pruebasRouter)
 
 app.use((error, req, res, next) => {
     console.log(error.stack)
